@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .container{
-    @apply max-w-6xl mx-auto
+    @apply lg:max-w-6xl mx-auto max-w-[90%]
 }
