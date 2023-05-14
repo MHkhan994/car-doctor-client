@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    box-sizing: border-box;
+}
+
 .container{
-    @apply lg:max-w-6xl mx-auto max-w-[90%]
+    @apply lg:max-w-[80%] mx-auto max-w-[90%] 
 }

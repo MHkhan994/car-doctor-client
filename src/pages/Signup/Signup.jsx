@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import loginimg from '../../assets/images/login/login.svg'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Signup = () => {
 
@@ -15,7 +16,13 @@ const Signup = () => {
         const password = form.password.value;
 
         createUser(email, password)
-            .then(result => console.log(result.user))
+            .then(result => {
+                result.user && updateProfile(result.user, {
+                    displayName: name
+                })
+                    .then(() => console.log('profile updated'))
+                    .catch(error => console.log(error))
+            })
             .catch(error => console.log(error))
     }
 
